@@ -18,6 +18,27 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CoordGo.cpp" />
+    <ClCompile Include="Coordinate.cpp" />
+    <ClCompile Include="DescriptionOfRectangles.cpp" />
+    <ClCompile Include="Dice.cpp" />
+    <ClCompile Include="Map.cpp" />
+    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Tokens.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CoordGo.h" />
+    <ClInclude Include="Coordinate.h" />
+    <ClInclude Include="DescriptionOfRectangles.h" />
+    <ClInclude Include="Dice.h" />
+    <ClInclude Include="Map.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="Player.h" />
+    <ClInclude Include="Tokens.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{6DE74A4C-6FB9-4C91-9A1C-A3E1EE93783A}</ProjectGuid>
@@ -117,27 +138,6 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\CourseWork\LOL\LOL\CoordGo.cpp" />
-    <ClCompile Include="..\..\CourseWork\LOL\LOL\Coordinate.cpp" />
-    <ClCompile Include="..\..\CourseWork\LOL\LOL\DescriptionOfRectangles.cpp" />
-    <ClCompile Include="..\..\CourseWork\LOL\LOL\Dice.cpp" />
-    <ClCompile Include="..\..\CourseWork\LOL\LOL\Map.cpp" />
-    <ClCompile Include="..\..\CourseWork\LOL\LOL\Menu.cpp" />
-    <ClCompile Include="..\..\CourseWork\LOL\LOL\Player.cpp" />
-    <ClCompile Include="..\..\CourseWork\LOL\LOL\Source.cpp" />
-    <ClCompile Include="..\..\CourseWork\LOL\LOL\Tokens.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\CourseWork\LOL\LOL\CoordGo.h" />
-    <ClInclude Include="..\..\CourseWork\LOL\LOL\Coordinate.h" />
-    <ClInclude Include="..\..\CourseWork\LOL\LOL\DescriptionOfRectangles.h" />
-    <ClInclude Include="..\..\CourseWork\LOL\LOL\Dice.h" />
-    <ClInclude Include="..\..\CourseWork\LOL\LOL\Map.h" />
-    <ClInclude Include="..\..\CourseWork\LOL\LOL\Menu.h" />
-    <ClInclude Include="..\..\CourseWork\LOL\LOL\Player.h" />
-    <ClInclude Include="..\..\CourseWork\LOL\LOL\Tokens.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
