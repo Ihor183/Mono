@@ -15,57 +15,57 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\CourseWork\LOL\LOL\Source.cpp">
+    <ClCompile Include="Tokens.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\CourseWork\LOL\LOL\Player.cpp">
+    <ClCompile Include="Source.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\CourseWork\LOL\LOL\Tokens.cpp">
+    <ClCompile Include="Player.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\CourseWork\LOL\LOL\Menu.cpp">
+    <ClCompile Include="Menu.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\CourseWork\LOL\LOL\Map.cpp">
+    <ClCompile Include="Map.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\CourseWork\LOL\LOL\Coordinate.cpp">
+    <ClCompile Include="Dice.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\CourseWork\LOL\LOL\DescriptionOfRectangles.cpp">
+    <ClCompile Include="DescriptionOfRectangles.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\CourseWork\LOL\LOL\Dice.cpp">
+    <ClCompile Include="Coordinate.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\CourseWork\LOL\LOL\CoordGo.cpp">
+    <ClCompile Include="CoordGo.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\CourseWork\LOL\LOL\Player.h">
+    <ClInclude Include="CoordGo.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\CourseWork\LOL\LOL\Tokens.h">
+    <ClInclude Include="Dice.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\CourseWork\LOL\LOL\Map.h">
+    <ClInclude Include="Coordinate.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\CourseWork\LOL\LOL\Menu.h">
+    <ClInclude Include="DescriptionOfRectangles.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\CourseWork\LOL\LOL\Coordinate.h">
+    <ClInclude Include="Menu.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\CourseWork\LOL\LOL\DescriptionOfRectangles.h">
+    <ClInclude Include="Map.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\CourseWork\LOL\LOL\Dice.h">
+    <ClInclude Include="Tokens.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\CourseWork\LOL\LOL\CoordGo.h">
+    <ClInclude Include="Player.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>
