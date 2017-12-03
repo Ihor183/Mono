@@ -1,1 +1,8 @@
-﻿  Monopoly.vcxproj -> C:\Users\ihor1\Documents\GitHub\Mono\Monopoly\x64\Debug\Monopoly.exe
+﻿  Source.cpp
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\source.cpp(50): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\source.cpp(73): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\source.cpp(73): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\source.cpp(139): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+  Player.cpp
+  Создание кода...
+  Monopoly.vcxproj -> C:\Users\ihor1\Documents\GitHub\Mono\Monopoly\x64\Debug\Monopoly.exe
