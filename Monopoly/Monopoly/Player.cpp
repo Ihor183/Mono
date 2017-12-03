@@ -9,11 +9,15 @@ Player::Player() {
 Player::~Player() { }
 
 void Player::setMoney(int money) { this->money = money;  }
-void Player::setPosition(int position) { 
-	if(this->position + position < 40)
-		this->position = position;  
-	else {
-		this->position += position;
-		this->position -= 40;
-	}
+
+void Player::setPosition(int position) { this->position = position; }
+
+int Player::getPosition() { return position; }
+
+void Player::buyFirm(int pos, Map &map) {
+	//map[pos].buy = true;
+	/*map[pos].buy = true;
+	money -= map[pos].price;
+	positionMyFirm.push_back(pos);*/
+
 }
