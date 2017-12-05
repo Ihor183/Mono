@@ -1,8 +1,6 @@
-﻿  Source.cpp
-c:\users\ihor1\documents\github\mono\monopoly\monopoly\source.cpp(50): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\ihor1\documents\github\mono\monopoly\monopoly\source.cpp(73): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\ihor1\documents\github\mono\monopoly\monopoly\source.cpp(73): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-c:\users\ihor1\documents\github\mono\monopoly\monopoly\source.cpp(139): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-  Player.cpp
+﻿  CommunityChest.cpp
+  Chance.cpp
   Создание кода...
+     ╤ючфрхЄё  сшсышюЄхър C:\Users\ihor1\Documents\GitHub\Mono\Monopoly\x64\Debug\Monopoly.lib ш юс·хъЄ C:\Users\ihor1\Documents\GitHub\Mono\Monopoly\x64\Debug\Monopoly.exp
+MSVCRTD.lib(initializers.obj) : warning LNK4098: сшсышюЄхър яю єьюыўрэш■ "msvcrt.lib" яЁюЄштюЁхўшЄ шёяюы№чютрэш■ фЁєушї сшсышюЄхъ; шёяюы№чєщЄх ярЁрьхЄЁ /NODEFAULTLIB:library
   Monopoly.vcxproj -> C:\Users\ihor1\Documents\GitHub\Mono\Monopoly\x64\Debug\Monopoly.exe

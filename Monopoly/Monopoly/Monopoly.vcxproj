@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Chance.cpp" />
+    <ClCompile Include="CommunityChest.cpp" />
     <ClCompile Include="CoordGo.cpp" />
     <ClCompile Include="Coordinate.cpp" />
     <ClCompile Include="DescriptionOfRectangles.cpp" />
@@ -30,6 +32,8 @@
     <ClCompile Include="Tokens.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Chance.h" />
+    <ClInclude Include="CommunityChest.h" />
     <ClInclude Include="CoordGo.h" />
     <ClInclude Include="Coordinate.h" />
     <ClInclude Include="DescriptionOfRectangles.h" />
