@@ -23,5 +23,6 @@ public:
 	void setPosition(int);
 	int getPosition();
 	void buyFirm(int, Map&);
+	long getMoneyPlayer();
 };
 

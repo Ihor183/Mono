@@ -25,5 +25,6 @@ public:
 	void setStartPosition(int*, int*, int);
 	void setBuyerFirm();
 	bool isBuy(int);
+	void GetMap(int, long&);
 };
 

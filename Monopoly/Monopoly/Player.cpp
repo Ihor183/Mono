@@ -14,10 +14,10 @@ void Player::setPosition(int position) { this->position = position; }
 
 int Player::getPosition() { return position; }
 
-void Player::buyFirm(int pos, Map &map) {
-	//map[pos].buy = true;
-	/*map[pos].buy = true;
-	money -= map[pos].price;
-	positionMyFirm.push_back(pos);*/
+void Player::buyFirm(int pos, Map &obj) {
+	obj.GetMap(pos, money);    
+	positionMyFirm.push_back(pos);
 
 }
+
+long Player::getMoneyPlayer() { return money; }

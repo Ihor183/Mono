@@ -112,3 +112,8 @@ void Map::setBuyerFirm() {
 bool Map::isBuy(int pos) {
 	return map[pos].buy;
 }
+
+void Map::GetMap(int pos, long &money) {
+	map[pos].buy = true;
+	money -= map[pos].price;
+}
