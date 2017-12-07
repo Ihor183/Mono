@@ -74,27 +74,28 @@ ifstream& operator >> (ifstream &ifs, Map &obj)
 	return ifs;
 }
 
-void Map::setPosition(int* a, int* b, int c, int *d, int* point) {
+void Map::setPosition(int* a, int* b, int c, int *d, int &point) {
 	for (int i = 0; i < SIZE; i++) {
 		if (i == *d) {
-			/*int sum = (i + 1);
-			a[0] = go[c][sum].x;
-			b[0] = go[c][sum].y;
-			*d = sum;
-			break;*/
-			if ((i + (point[0] + point[1])) < 40) {
-				int sum = (i + (point[0] + point[1]));
-				a[0] = go[c][sum].x;
-				b[0] = go[c][sum].y;
-				*d = sum;
+			if (point < 40) { ++i;
+				a[0] = go[c][i].x;
+				b[0] = go[c][i].y;
+				*d = i;
 				break;
 			}
+			else if (i < 39) {
+					++i;
+					a[0] = go[c][i].x;
+					b[0] = go[c][i].y;
+					*d = i;
+					break;
+				}
 			else {
-				int sum = (i + (point[0] + point[1])) % 40;
-				a[0] = go[c][sum].x;
-				b[0] = go[c][sum].y;
-				*d = sum;
-				break;
+				i = 0;
+				point %= 40;
+				a[0] = go[c][i].x;
+				b[0] = go[c][i].y;
+				*d = i;
 			}
 		}
 	}
@@ -116,4 +117,9 @@ bool Map::isBuy(int pos) {
 void Map::GetMap(int pos, long &money) {
 	map[pos].buy = true;
 	money -= map[pos].price;
+}
+
+void Map::goToJail(int* a, int* b, int c) {
+	a[0] = go[c][10].x;
+	b[0] = go[c][10].y;
 }

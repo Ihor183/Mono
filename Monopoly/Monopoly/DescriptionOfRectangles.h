@@ -1,6 +1,6 @@
 #pragma once
 
-struct DescriptionOfRectangles{
+struct DescriptionOfRectangles {
 	int price;
 	int money;
 	int rent[6];

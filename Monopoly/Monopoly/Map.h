@@ -21,10 +21,11 @@ public:
 	Map();
 	~Map();
 	friend ifstream& operator >>(ifstream &, Map &);
-	void setPosition(int*, int*, int, int*, int*);
+	void setPosition(int*, int*, int, int*, int&);
 	void setStartPosition(int*, int*, int);
 	void setBuyerFirm();
 	bool isBuy(int);
 	void GetMap(int, long&);
+	void goToJail(int*, int*, int);
 };
 
