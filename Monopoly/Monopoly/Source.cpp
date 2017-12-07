@@ -230,16 +230,16 @@ int main() {
 		}
 	}
 
-	int point[2], nextPosition, pos, posForBuy, *count;
+	int point[2], nextPosition, pos, posForBuy, *count, *PlayerInJail;
 	int Firm[] = { 1, 3, 5, 6, 8, 9, 11, 12, 13, 14, 15, 16, 18, 19, 21, 23, 24, 25, 26, 27, 28, 29, 31, 32, 34, 35, 37, 39};
-	vector<int> PlayerInJail;
+	PlayerInJail = new int[spr_Token.size()];
 	count = new int[spr_Token.size()];
 	for (int i = 0; i < spr_Token.size(); i++) count[i] = 0;
 	Dice dice;
 	bool fl = false, isRoolDice = false, go = false, buy = false;
 
 	for (int i = 0; i < 4; i++) { a[i] = 0; b[i] = 0; }
-	for (int i = 0; i < spr_Token.size(); i++) count[i] = 0;
+	for (int i = 0; i < spr_Token.size(); i++) { count[i] = 0; PlayerInJail[i] = 0; }
 
 	player[0].setPosition(28);
 	//player[1].setPosition(28);
@@ -303,44 +303,29 @@ int main() {
 						spr_Dice[point[0] - 1].setPosition(700, 300);
 						App.draw(spr_Dice[point[1] - 1]);
 					}
-					if (PlayerInJail.empty()) {
+					if (PlayerInJail[Numplayer] == 0) {
 						pos = player[Numplayer].getPosition();
 						nextPosition = (pos + (point[0] + point[1]));
 						go = true;
 					}
 					else {
-						int result = 0, k = 0;
-						for (int i = 0; i < PlayerInJail.size(); i++) {
-							if (PlayerInJail[i] == Numplayer) {
-								++result; k = i;
-								break;
-							}
+						if (point[0] == point[1]) {
+							pos = 10;
+							nextPosition = (pos + (point[0] + point[1]));
+							PlayerInJail[Numplayer] = 0;
+					    	go = true;
 						}
-						//auto result = find(PlayerInJail.begin(), PlayerInJail.end(), Numplayer);
-						if (result != 0) {
-							if (point[0] == point[1]) {
-								/*if (PlayerInJail.size() == 1) { PlayerInJail.clear(); }
-								else */PlayerInJail.erase(PlayerInJail.begin() + k);
-								pos = player[Numplayer].getPosition();
-								nextPosition = (pos + (point[0] + point[1]));
-								go = true;
-							}
-							else {
-								++count[Numplayer];
-							}
+						else ++count[Numplayer];
 
-							if (count[Numplayer] == 3) {
-								PlayerInJail.erase(PlayerInJail.begin() + k);
-								player[Numplayer].getOutOfJail();
-							}
-						}
-						else {
-							pos = player[Numplayer].getPosition();
+						if (count[Numplayer] == 3) {
+							player[Numplayer].getOutOfJail();
+							PlayerInJail[Numplayer] = 0;
+							pos = 10;
 							nextPosition = (pos + (point[0] + point[1]));
 							go = true;
 						}
-
 					}
+					
 						sleep(*new Time(microseconds(100)));
 				}
 				if (menuNum == 2 && isRoolDice == true && go == false) {
@@ -388,7 +373,7 @@ int main() {
 					map.goToJail(a, b, Numplayer);
 					player[Numplayer].setPosition(pos);
 					spr_Token[Numplayer].setPosition(a[0], b[0]);
-					PlayerInJail.push_back(Numplayer);
+					PlayerInJail[Numplayer] = 1;
 				}
 				if (pos == 38 && player[Numplayer].getStart()) {
 					player[Numplayer].appMoney(-100);
