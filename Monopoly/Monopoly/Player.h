@@ -12,9 +12,8 @@ private:
 	bool start;
 	long money;
 	int position;
+	int isJailCard;
 	vector<int> positionMyFirm;
-	//int positionMyFirm[MAXFIRM];
-	//vector<int> firm;
 
 public:
 	Player();
@@ -24,5 +23,12 @@ public:
 	int getPosition();
 	void buyFirm(int, Map&);
 	long getMoneyPlayer();
+	void appMoney(int);
+	void getCommunityChest();
+	void getChance();
+	void getOutOfJail();
+	bool getStart();
+	void setStart(bool);
+	
 };
 
