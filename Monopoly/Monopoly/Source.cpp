@@ -15,7 +15,7 @@
 using namespace sf;
 using namespace std;
 
-std::string toStr(int var)
+string toStr(int var)
 {
 	std::stringstream tmp; tmp << var; return tmp.str();
 }
@@ -31,17 +31,17 @@ int main() {
 	text.setStyle(Text::Bold);
 	
 
-	Texture txt_map, tex_tokens, tex_background, tex_Token[4], tex_Dice[6], tex_Button[6], tex_Rect[28];
+	Texture txt_map, tex_tokens, tex_background, tex_Token[4], tex_Dice[6], tex_Button[5], tex_Rect[28];
 	txt_map.loadFromFile("images/map.png");
 	tex_tokens.loadFromFile("images/tokens.tga");
 	tex_background.loadFromFile("images/back.png");
 	for (int i = 0; i < 28; i++)  tex_Rect[i].loadFromFile("images/white.png");
-	for (int i = 0; i < 6; i++)  tex_Button[i].loadFromFile("images/button" + toStr(i + 1) + ".png");
+	for (int i = 0; i < 5; i++)  tex_Button[i].loadFromFile("images/button" + toStr(i + 1) + ".png");
 	for (int i = 0; i < 4; i++)   tex_Token[i].loadFromFile("images/tokens.tga");
 	for (int i = 0; i < 6; i++)   tex_Dice[i].loadFromFile("images/de" + toStr(i + 1) + ".png");
 
 
-	Sprite spr_backgr, spr_map, spr_Dice[6], spr_Button[6], spr_Rect[28];
+	Sprite spr_backgr, spr_map, spr_Dice[6], spr_Button[5], spr_Rect[28];
 	vector<Sprite> spr_Token(4);
 	spr_backgr.setTexture(tex_background);
 	spr_map.setTexture(txt_map);
@@ -92,7 +92,7 @@ int main() {
 	}
 	for (int i = 0; i < spr_Token.size(); i++)  spr_Token[i].setTexture(tex_Token[i]);
 	for (int i = 0; i < 6; i++)    spr_Dice[i].setTexture(tex_Dice[i]); 
-	for (int i = 0; i < 6; i++) { spr_Button[i].setTexture(tex_Button[i]); spr_Button[i].setPosition(left, top += 60); }
+	for (int i = 0; i < 5; i++) { spr_Button[i].setTexture(tex_Button[i]); spr_Button[i].setPosition(left, top += 60); }
 	
 
 	ifstream ifs;
@@ -104,6 +104,8 @@ int main() {
 	ifs >> map;
 	ifs.close();
     Menu menu(App);
+	menu.setImage();
+	//menu.t(App);
 
 	int a[4], b[4], c[4], d[4], g[4], h[4], control[] = { -1, -1 }, j = 0;
 	double e[4], f[4];
@@ -241,8 +243,11 @@ int main() {
 	for (int i = 0; i < 4; i++) { a[i] = 0; b[i] = 0; }
 	for (int i = 0; i < spr_Token.size(); i++) { count[i] = 0; PlayerInJail[i] = 0; }
 
-	player[0].setPosition(28);
+	int Size = spr_Token.size();
+
+	//player[0].setPosition(28);
 	//player[1].setPosition(28);
+	
 
 	while (App.isOpen())
 	{
@@ -283,6 +288,10 @@ int main() {
 		if (IntRect(300, 180, 58, 58).contains(Mouse::getPosition(App))) {
 			spr_Button[2].setColor(Color::Blue); 
 			menuNum = 3;
+		}
+		if (IntRect(300, 240, 58, 58).contains(Mouse::getPosition(App))) {
+			spr_Button[3].setColor(Color::Blue);
+			menuNum = 4;
 		}
 			if (Mouse::isButtonPressed(Mouse::Left) || menuNum == 3 || menuNum == 2 || menuNum == 1) {
 				if (menuNum == 1 && isRoolDice == false && go == false) {
@@ -352,6 +361,11 @@ int main() {
 						buy = false;
 					}
 				}
+				if (menuNum == 4) {
+					menu.trade(App, player, map, Size, Numplayer, Firm, spr_Token, money
+);
+				}
+
 			}
 
 			if (go == false) {
@@ -399,7 +413,7 @@ int main() {
 		}
 
 		
-		for (int i = 0; i < 6; i++) App.draw(spr_Button[i]);
+		for (int i = 0; i < 5; i++) App.draw(spr_Button[i]);
 		
 
 		for (int i = 0; i < spr_Token.size(); i++) App.draw(spr_Token[i]);
@@ -410,9 +424,9 @@ int main() {
 			money[i].setString(toStr(PlayerMoney) + '$');
 			App.draw(money[i]);
 		}
-		for (int i = 0; i < 28; i++) App.draw(spr_Rect[i]);
+		for (int i = 0; i < 28; i++) App.draw(spr_Rect[i]); 
 		App.display();
-		sleep(*new Time(milliseconds(200)));
+		sleep(*new Time(milliseconds(100)));
 	}
 
 	return 0;

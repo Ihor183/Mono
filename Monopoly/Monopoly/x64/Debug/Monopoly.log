@@ -1,11 +1,9 @@
-﻿  Source.cpp
-c:\users\ihor1\documents\github\mono\monopoly\monopoly\source.cpp(95): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\ihor1\documents\github\mono\monopoly\monopoly\source.cpp(122): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\ihor1\documents\github\mono\monopoly\monopoly\source.cpp(123): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-c:\users\ihor1\documents\github\mono\monopoly\monopoly\source.cpp(175): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-c:\users\ihor1\documents\github\mono\monopoly\monopoly\source.cpp(191): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-c:\users\ihor1\documents\github\mono\monopoly\monopoly\source.cpp(207): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-c:\users\ihor1\documents\github\mono\monopoly\monopoly\source.cpp(223): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-c:\users\ihor1\documents\github\mono\monopoly\monopoly\source.cpp(375): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
-c:\users\ihor1\documents\github\mono\monopoly\monopoly\source.cpp(396): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+﻿  Menu.cpp
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\menu.cpp(302): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\menu.cpp(310): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\menu.cpp(318): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\menu.cpp(326): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\menu.cpp(430): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\menu.cpp(971): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\menu.cpp(982): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   Monopoly.vcxproj -> C:\Users\ihor1\Documents\GitHub\Mono\Monopoly\x64\Debug\Monopoly.exe
