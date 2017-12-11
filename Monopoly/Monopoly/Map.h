@@ -2,6 +2,7 @@
 #include<iostream>
 #include<fstream>
 #include<vector>
+#include<map>
 #include"Coordinate.h"
 #include"DescriptionOfRectangles.h"
 #include"CoordGo.h"
@@ -14,8 +15,10 @@ using namespace std;
 class Map : public DescriptionOfRectangles{
 protected:
 	Coordinate SqMap[SIZE];
-	vector<DescriptionOfRectangles> map;
+	vector<DescriptionOfRectangles> mapi;
 	CoordGo go[FOUR][SIZE];
+	multimap<int, int> NumCorporation;
+	//int NumCorporation[8];
 
 public:
 	Map();
@@ -27,5 +30,6 @@ public:
 	bool isBuy(int);
 	void GetMap(int, long&);
 	void goToJail(int*, int*, int);
+	void getNumCorporation();
 };
 

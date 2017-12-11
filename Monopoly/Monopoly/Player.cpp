@@ -33,3 +33,10 @@ void Player::getChance() {
 void Player::getOutOfJail() { money -= 50; }
 bool Player::getStart() { return start; }
 void Player::setStart(bool start) { this->start = start; }
+int Player::getSize() { return positionMyFirm.size(); }
+void Player::setPositionMyFirm(int *arr) {
+	for (int i = 0; i < positionMyFirm.size(); i++) {
+		arr[i] = positionMyFirm[i];
+	}
+}
+void Player::sortVector() { sort(positionMyFirm.begin(), positionMyFirm.end()); }

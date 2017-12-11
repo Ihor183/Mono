@@ -1,17 +1,41 @@
 #include "Map.h"
 #include<fstream>
 
-Map::Map() { }
+Map::Map() {
+	
+		NumCorporation.insert(pair<int, int>(1, 1));
+		NumCorporation.insert(pair<int, int>(1, 3));
+		NumCorporation.insert(pair<int, int>(2, 6));
+		NumCorporation.insert(pair<int, int>(2, 8));
+		NumCorporation.insert(pair<int, int>(2, 9));
+		NumCorporation.insert(pair<int, int>(3, 11));
+		NumCorporation.insert(pair<int, int>(3, 13));
+		NumCorporation.insert(pair<int, int>(3, 14));
+		NumCorporation.insert(pair<int, int>(4, 16));
+		NumCorporation.insert(pair<int, int>(4, 18));
+		NumCorporation.insert(pair<int, int>(4, 19));
+		NumCorporation.insert(pair<int, int>(5, 21));
+		NumCorporation.insert(pair<int, int>(5, 23));
+		NumCorporation.insert(pair<int, int>(5, 24));
+		NumCorporation.insert(pair<int, int>(6, 26));
+		NumCorporation.insert(pair<int, int>(6, 27));
+		NumCorporation.insert(pair<int, int>(6, 29));
+		NumCorporation.insert(pair<int, int>(7, 31));
+		NumCorporation.insert(pair<int, int>(7, 32));
+		NumCorporation.insert(pair<int, int>(7, 34));
+		NumCorporation.insert(pair<int, int>(8, 37));
+		NumCorporation.insert(pair<int, int>(8, 39));
+}
 
 
 Map::~Map() { }
 
 ifstream& operator >> (ifstream &ifs, Map &obj)
-{
+{/*
 	for (int i = 0; i < SIZE; i++) { 
 		ifs >> obj.SqMap[i].x >> obj.SqMap[i].y >> obj.SqMap[i].Wight 
 			>> obj.SqMap[i].Height >> obj.SqMap[i].leftPx >> obj.SqMap[i].topPx; 
-	}
+	}*/
 
 	for (int i = 0; i < SIZE; i++) { 
 		if (i != 0 && i != 2 && i != 4 && i != 5 && i != 7 && i != 10 &&
@@ -61,7 +85,7 @@ ifstream& operator >> (ifstream &ifs, Map &obj)
 			obj.money = 0; 
 			obj.mortgageValue = 100; 
 		}
-		obj.map.push_back(obj);
+		obj.mapi.push_back(obj);
 	}
 
 	for (int i = 0; i < FOUR; i++)
@@ -111,15 +135,19 @@ void Map::setBuyerFirm() {
 }
 
 bool Map::isBuy(int pos) {
-	return map[pos].buy;
+	return mapi[pos].buy;
 }
 
 void Map::GetMap(int pos, long &money) {
-	map[pos].buy = true;
-	money -= map[pos].price;
+	mapi[pos].buy = true;
+	money -= mapi[pos].price;
 }
 
 void Map::goToJail(int* a, int* b, int c) {
 	a[0] = go[c][10].x;
 	b[0] = go[c][10].y;
+}
+
+void Map::getNumCorporation() {
+
 }

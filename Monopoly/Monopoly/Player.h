@@ -2,6 +2,7 @@
 #include<vector>
 #include"Dice.h"
 #include"Map.h"
+#include<algorithm>
 
 //const int MAXFIRM = 28;
 
@@ -29,6 +30,8 @@ public:
 	void getOutOfJail();
 	bool getStart();
 	void setStart(bool);
-	
+	int getSize();
+	void setPositionMyFirm(int *);
+	void sortVector();
 };
 
