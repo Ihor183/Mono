@@ -40,3 +40,42 @@ void Player::setPositionMyFirm(int *arr) {
 	}
 }
 void Player::sortVector() { sort(positionMyFirm.begin(), positionMyFirm.end()); }
+void Player::Change(vector<int> one, vector<int> two, int* Firm, int money, int subtractmoney) {
+	vector<int>::iterator it;
+
+	this->money += money;
+	this->money -= subtractmoney;
+
+	int *arr = new int[one.size()];
+
+	for (int i = 0; i < one.size(); i++) {
+		for (int j = 0; j < 28; j++) {
+			if (one[i] == j) {
+				arr[i] = Firm[j];
+			}
+		}
+	}
+	for (int i = 0; i < one.size(); i++) {
+		for (it = positionMyFirm.begin(); it != positionMyFirm.end(); it++) {
+			if (*it == arr[i]) it = positionMyFirm.erase(it);
+			if (it == positionMyFirm.end()) break;
+		}
+	}
+
+	delete[]arr;
+
+	arr = new int[two.size()];
+
+	for (int i = 0; i < two.size(); i++) {
+		for (int j = 0; j < 28; j++) {
+			if (two[i] == j) {
+				arr[i] = Firm[j];
+			}
+		}
+	}
+
+	for (int i = 0; i < two.size(); i++) {
+		positionMyFirm.push_back(arr[i]);
+	}
+}
+	

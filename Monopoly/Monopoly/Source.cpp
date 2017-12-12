@@ -31,7 +31,8 @@ int main() {
 	text.setStyle(Text::Bold);
 	
 
-	Texture txt_map, tex_tokens, tex_background, tex_Token[4], tex_Dice[6], tex_Button[5], tex_Rect[28];
+	Texture txt_map, tex_tokens, tex_background, tex_Token[4], tex_Dice[6], tex_Button[5], tex_Rect[28],
+		tex_Chance[8], tex_Comm[8];
 	txt_map.loadFromFile("images/map.png");
 	tex_tokens.loadFromFile("images/tokens.tga");
 	tex_background.loadFromFile("images/back.png");
@@ -39,15 +40,24 @@ int main() {
 	for (int i = 0; i < 5; i++)  tex_Button[i].loadFromFile("images/button" + toStr(i + 1) + ".png");
 	for (int i = 0; i < 4; i++)   tex_Token[i].loadFromFile("images/tokens.tga");
 	for (int i = 0; i < 6; i++)   tex_Dice[i].loadFromFile("images/de" + toStr(i + 1) + ".png");
+	for (int i = 0; i < 8; i++) { 
+		tex_Chance[i].loadFromFile("images/" + toStr(i + 1) + ".png"); 
+		tex_Comm[i].loadFromFile("images/c" + toStr(i + 1) + ".png");
+	}
 
-
-	Sprite spr_backgr, spr_map, spr_Dice[6], spr_Button[5], spr_Rect[28];
+	Sprite spr_backgr, spr_map, spr_Dice[6], spr_Button[5], spr_Rect[28], spr_Chance[8], spr_Comm[8];
 	vector<Sprite> spr_Token(4);
 	spr_backgr.setTexture(tex_background);
 	spr_map.setTexture(txt_map);
 	spr_backgr.setPosition(0, 0);
     spr_map.setScale(Vector2f(0.45f, 0.45f));
 	spr_map.setPosition(385, 6);
+	for (int i = 0; i < 8; i++) {
+		spr_Chance[i].setTexture(tex_Chance[i]);
+		spr_Chance[i].setPosition(455, 259);
+		spr_Comm[i].setTexture(tex_Comm[i]);
+		spr_Comm[i].setPosition(455, 259);
+	}
 	for (int i = 0; i < 28; i++) {
 		spr_Rect[i].setTexture(tex_Rect[i]);
 		if ((i >= 0 && i < 6) || (i > 13 && i < 22)) {
@@ -362,8 +372,41 @@ int main() {
 					}
 				}
 				if (menuNum == 4) {
-					menu.trade(App, player, map, Size, Numplayer, Firm, spr_Token, money
-);
+					menu.trade(App, player, map, Size, Numplayer, Firm, spr_Token, money);
+					int size, Cast = 0;
+					for (int i = 0; i < spr_Token.size(); i++) {
+						size = player[i].getSize();
+
+						int *arr = new int[size];
+						player[i].setPositionMyFirm(arr);
+						for (int j = 0; j < size; j++) {
+							for (int k = 0; k < 28; k++) {
+								if (arr[j] == Firm[k]) {
+									arr[j] = k;
+									break;
+								}
+							}
+							switch (i) {
+							case 0: spr_Rect[arr[j]].setColor(Color::Blue); break;
+							case 1: spr_Rect[arr[j]].setColor(Color::Green); break;
+							case 2: spr_Rect[arr[j]].setColor(Color::Color(241, 156, 187)); break;
+							case 3: spr_Rect[arr[j]].setColor(Color::Red); break;
+							}
+						}
+					}
+					/*for (int i = 0; i < 28; i++) {
+						if (pos == Firm[i])
+							RectB = i;
+					}
+
+					for (int i = 0; i < spr_Token.size(); i++) {
+						switch (Numplayer) {
+						case 0: spr_Rect[RectB].setColor(Color::Blue); break;
+						case 1: spr_Rect[RectB].setColor(Color::Green); break;
+						case 2: spr_Rect[RectB].setColor(Color::Color(241, 156, 187)); break;
+						case 3: spr_Rect[RectB].setColor(Color::Red); break;
+						}
+					}*/
 				}
 
 			}

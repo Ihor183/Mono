@@ -33,5 +33,6 @@ public:
 	int getSize();
 	void setPositionMyFirm(int *);
 	void sortVector();
+	void Change(vector<int>, vector<int>, int *, int, int);
 };
 

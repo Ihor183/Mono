@@ -14,8 +14,8 @@ using namespace std;
 class Menu {
 private:
 	Coordinate DataTokens[4];
-	Texture tex_image[28], tex_helpInstrument[5], tex_Background, tex_check[36];
-	Sprite spr_image[28], spr_helpInstrument[5], spr_Background, spr_check[36];
+	Texture tex_image[28], tex_helpInstrument[6], tex_Background, tex_check[18], tex_check1[18];
+	Sprite spr_image[28], spr_helpInstrument[6], spr_Background, spr_check[18], spr_check1[18];
 
 public:
 	Menu();
