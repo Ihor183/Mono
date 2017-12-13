@@ -13,9 +13,9 @@ using namespace std;
 
 class Menu {
 private:
-	Coordinate DataTokens[4];
-	Texture tex_image[28], tex_helpInstrument[6], tex_Background, tex_check[18], tex_check1[18];
-	Sprite spr_image[28], spr_helpInstrument[6], spr_Background, spr_check[18], spr_check1[18];
+	Coordinate *DataTokens;
+	Texture *tex_image, *tex_helpInstrument, tex_Background, *tex_check, *tex_check1;
+	Sprite *spr_image, *spr_helpInstrument, spr_Background, *spr_check, *spr_check1;
 
 public:
 	Menu();
@@ -26,6 +26,5 @@ public:
 	void setImage();
 	string toStr(int);
 	void trade(RenderWindow &, Player*, Map&, int, int, int*, vector<Sprite>, Text*);
-	void t(RenderWindow &);
 };
 

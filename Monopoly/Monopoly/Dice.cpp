@@ -8,6 +8,7 @@ Dice::Dice() { }
 Dice::~Dice() { }
 
 void Dice::ThrowDice(int* point) {
+	points = new int[2];
 	srand(time(NULL));
 	for (int i = 0; i < 2; i++) { points[i] = rand() % 6 + 1; point[i] = points[i]; }
 }

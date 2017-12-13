@@ -3,7 +3,7 @@
 struct DescriptionOfRectangles {
 	int price;
 	int money;
-	int rent[6];
+	int *rent;
 	int housePrice;
 	int hotelPrice;
 	int mortgageValue;

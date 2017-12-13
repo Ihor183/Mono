@@ -4,11 +4,9 @@
 #include"Map.h"
 #include<algorithm>
 
-//const int MAXFIRM = 28;
-
 using namespace std;
 
-class Player : public Dice/*, public Map*/ {
+class Player : public Dice {
 private:
 	bool start;
 	long money;
