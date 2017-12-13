@@ -3,10 +3,7 @@
 #include<time.h>
 
 Dice::Dice() { }
-
-
 Dice::~Dice() { }
-
 void Dice::ThrowDice(int* point) {
 	points = new int[2];
 	srand(time(NULL));

@@ -1,5 +1,6 @@
 #pragma once
 #include<vector>
+#include<map>
 #include"Dice.h"
 #include"Map.h"
 #include<algorithm>
@@ -13,6 +14,11 @@ private:
 	int position;
 	int isJailCard;
 	vector<int> positionMyFirm;
+	vector<int> NumMyCorporation;
+	vector<int>::iterator it;
+	multimap<int, int> NumCorporation;
+	multimap<int, int>::iterator iNumCorporation;
+	
 
 public:
 	Player();
@@ -23,8 +29,6 @@ public:
 	void buyFirm(int, Map&);
 	long getMoneyPlayer();
 	void appMoney(int);
-	void getCommunityChest();
-	void getChance();
 	void getOutOfJail();
 	bool getStart();
 	void setStart(bool);
@@ -32,5 +36,7 @@ public:
 	void setPositionMyFirm(int *);
 	void sortVector();
 	void Change(vector<int>, vector<int>, int *, int, int);
+	void Rent(Player *, int, Map&, int, int);
+	bool isCorporation(int, int);
 };
 

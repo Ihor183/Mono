@@ -16,7 +16,6 @@ class Map : public DescriptionOfRectangles{
 protected:
 	vector<DescriptionOfRectangles> mapi;
 	CoordGo go[FOUR][SIZE];
-
 public:
 	Map();
 	~Map();
@@ -27,6 +26,6 @@ public:
 	bool isBuy(int);
 	void GetMap(int, long&);
 	void goToJail(int*, int*, int);
-	void getNumCorporation();
+	int getInfo(int, int);
 };
 
