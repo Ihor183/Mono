@@ -27,6 +27,7 @@
     <ClCompile Include="Dice.cpp" />
     <ClCompile Include="Map.cpp" />
     <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="Mono.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Tokens.cpp" />
@@ -40,6 +41,7 @@
     <ClInclude Include="Dice.h" />
     <ClInclude Include="Map.h" />
     <ClInclude Include="Menu.h" />
+    <ClInclude Include="Mono.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="Tokens.h" />
   </ItemGroup>

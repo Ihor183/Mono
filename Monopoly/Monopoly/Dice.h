@@ -1,7 +1,7 @@
 #pragma once
 class Dice {
 private:
-	int points[2];
+	int *points;
 public:
 	Dice();
 	~Dice();

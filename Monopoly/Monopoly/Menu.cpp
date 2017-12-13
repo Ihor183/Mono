@@ -74,6 +74,7 @@ Menu::Menu(RenderWindow& window) {
 }
 
 void Menu :: NewMenu(RenderWindow& window) {
+	DataTokens = new Coordinate[4];
 	Texture tex_Plcol[8], tex_Token[4], menuBackground;
 	menuBackground.loadFromFile("images/back1.png");
 	for (int i = 0; i < 8; i++) {
@@ -367,6 +368,11 @@ void Menu::GetDataTokens(int* a, int* b, int* c, int* d, double* e, double* f) {
 
 void Menu::setImage() {
 	tex_Background.loadFromFile("images/backForTrade.png");
+	tex_image = new Texture[28];
+	tex_helpInstrument = new Texture[6];
+	tex_check = new Texture[18];
+	tex_check1 = new Texture[18];
+
 	for (int i = 0; i < 18; i++) { tex_check[i].loadFromFile("images/check.png"); tex_check1[i].loadFromFile("images/check.png"); }
 	for (int i = 0; i < 28; i++) tex_image[i].loadFromFile("images/Firm" + toStr(i + 1) + ".png");
 	for (int i = 0; i < 6; i++)
@@ -381,6 +387,10 @@ void Menu::setImage() {
 			tex_helpInstrument[i].loadFromFile("images/i4.png");
 	}
 
+	spr_image = new Sprite[28];
+	spr_helpInstrument = new Sprite[6];
+	spr_check = new Sprite[18]; 
+	spr_check1 = new Sprite[18];
 
 	spr_Background.setTexture(tex_Background);
 	spr_Background.setPosition(0, 0);
@@ -1163,31 +1173,3 @@ void Menu::trade(RenderWindow &window, Player *player, Map &map, int Size, int C
 	}
 }
 
-void Menu::t(RenderWindow& window) {
-	/*bool isMenu = 1;
-	int menuNum = 0;
-	float qw;
-
-	while (window.isOpen() && isMenu)
-	{
-		qw = 0;
-		Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == Event::Closed)
-				window.close();
-		}
-		menuNum = 0;
-		window.clear();
-		window.draw(spr_Background);
-
-		for (int i = 0; i < 28; i++) {
-			qw++;
-			spr_image[i].setPosition(qw, 0);
-			window.draw(spr_image[i]);
-			
-		}
-
-		window.display();
-	}*/
-}

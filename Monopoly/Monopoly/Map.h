@@ -14,11 +14,8 @@ using namespace std;
 
 class Map : public DescriptionOfRectangles{
 protected:
-	Coordinate SqMap[SIZE];
 	vector<DescriptionOfRectangles> mapi;
 	CoordGo go[FOUR][SIZE];
-	multimap<int, int> NumCorporation;
-	//int NumCorporation[8];
 
 public:
 	Map();

@@ -42,11 +42,14 @@
     <ClCompile Include="CoordGo.cpp">
       <Filter>Файлы ресурсов</Filter>
     </ClCompile>
-    <ClCompile Include="Chance.cpp">
-      <Filter>Исходные файлы</Filter>
+    <ClCompile Include="Mono.cpp">
+      <Filter>Файлы ресурсов</Filter>
     </ClCompile>
     <ClCompile Include="CommunityChest.cpp">
-      <Filter>Исходные файлы</Filter>
+      <Filter>Файлы ресурсов</Filter>
+    </ClCompile>
+    <ClCompile Include="Chance.cpp">
+      <Filter>Файлы ресурсов</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -78,6 +81,9 @@
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
     <ClInclude Include="CommunityChest.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Mono.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
   </ItemGroup>

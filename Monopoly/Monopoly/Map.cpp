@@ -2,42 +2,15 @@
 #include<fstream>
 
 Map::Map() {
-	
-		NumCorporation.insert(pair<int, int>(1, 1));
-		NumCorporation.insert(pair<int, int>(1, 3));
-		NumCorporation.insert(pair<int, int>(2, 6));
-		NumCorporation.insert(pair<int, int>(2, 8));
-		NumCorporation.insert(pair<int, int>(2, 9));
-		NumCorporation.insert(pair<int, int>(3, 11));
-		NumCorporation.insert(pair<int, int>(3, 13));
-		NumCorporation.insert(pair<int, int>(3, 14));
-		NumCorporation.insert(pair<int, int>(4, 16));
-		NumCorporation.insert(pair<int, int>(4, 18));
-		NumCorporation.insert(pair<int, int>(4, 19));
-		NumCorporation.insert(pair<int, int>(5, 21));
-		NumCorporation.insert(pair<int, int>(5, 23));
-		NumCorporation.insert(pair<int, int>(5, 24));
-		NumCorporation.insert(pair<int, int>(6, 26));
-		NumCorporation.insert(pair<int, int>(6, 27));
-		NumCorporation.insert(pair<int, int>(6, 29));
-		NumCorporation.insert(pair<int, int>(7, 31));
-		NumCorporation.insert(pair<int, int>(7, 32));
-		NumCorporation.insert(pair<int, int>(7, 34));
-		NumCorporation.insert(pair<int, int>(8, 37));
-		NumCorporation.insert(pair<int, int>(8, 39));
 }
 
 
 Map::~Map() { }
 
 ifstream& operator >> (ifstream &ifs, Map &obj)
-{/*
+{
 	for (int i = 0; i < SIZE; i++) { 
-		ifs >> obj.SqMap[i].x >> obj.SqMap[i].y >> obj.SqMap[i].Wight 
-			>> obj.SqMap[i].Height >> obj.SqMap[i].leftPx >> obj.SqMap[i].topPx; 
-	}*/
-
-	for (int i = 0; i < SIZE; i++) { 
+		obj.rent = new int[6];
 		if (i != 0 && i != 2 && i != 4 && i != 5 && i != 7 && i != 10 &&
 			i != 12 && i != 15 && i != 17 && i != 20 && i != 22 && i != 25 &&
 			i != 28 && i != 30 && i != 33 && i != 35 && i != 36 && i != 38) { 
