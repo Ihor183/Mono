@@ -37,7 +37,6 @@ void Mono::start() {
 	text.setCharacterSize(20);
 	text.setStyle(Text::Bold);
 
-
 	txt_map.loadFromFile("images/map.png");
 	tex_tokens.loadFromFile("images/tokens.tga");
 	tex_background.loadFromFile("images/back.png");
@@ -46,8 +45,8 @@ void Mono::start() {
 	for (int i = 0; i < 4; i++)   tex_Token[i].loadFromFile("images/tokens.tga");
 	for (int i = 0; i < 6; i++)   tex_Dice[i].loadFromFile("images/de" + toStr(i + 1) + ".png");
 	for (int i = 0; i < 8; i++) {
-		tex_Chance[i].loadFromFile("images/" + toStr(i + 1) + ".png");
-		tex_Comm[i].loadFromFile("images/c" + toStr(i + 1) + ".png");
+		tex_Chance[i].loadFromFile("images/chance/" + toStr(i + 1) + ".png");
+		tex_Comm[i].loadFromFile("images/chance/c" + toStr(i + 1) + ".png");
 	}
 
 	vector<Sprite> spr_Token(4);
@@ -58,9 +57,9 @@ void Mono::start() {
 	spr_map.setPosition(385, 6);
 	for (int i = 0; i < 8; i++) {
 		spr_Chance[i].setTexture(tex_Chance[i]);
-		spr_Chance[i].setPosition(455, 259);
+		spr_Chance[i].setPosition(490, 259);
 		spr_Comm[i].setTexture(tex_Comm[i]);
-		spr_Comm[i].setPosition(455, 259);
+		spr_Comm[i].setPosition(490, 259);
 	}
 	for (int i = 0; i < 28; i++) {
 		spr_Rect[i].setTexture(tex_Rect[i]);
@@ -249,6 +248,14 @@ void Mono::start() {
 	for (int i = 0; i < spr_Token.size(); i++) { count[i] = 0; PlayerInJail[i] = 0; }
 
 	Size = spr_Token.size();
+	Chance chance;
+	CommunityChest comm;
+	chance.setChance();
+	comm.setComm();
+	int numChance = 0, numComm = 0;
+	bool isChance = false, isComm = false;
+	int cycle1 = 0, cycle2 = 0;
+	bool nextPlayer = false;
 
 	while (App.isOpen())
 	{
@@ -264,10 +271,6 @@ void Mono::start() {
 		spr_Button[1].setColor(Color::White);
 		spr_Button[2].setColor(Color::White);
 		spr_Button[3].setColor(Color::White);
-		spr_Rect[0].setColor(Color::White);
-
-		if (Numplayer == spr_Token.size())
-			Numplayer = 0;
 
 		App.clear();
 		App.draw(spr_backgr);
@@ -294,7 +297,7 @@ void Mono::start() {
 			spr_Button[3].setColor(Color::Blue);
 			menuNum = 4;
 		}
-		if (Mouse::isButtonPressed(Mouse::Left)) {
+		if (Mouse::isButtonPressed(Mouse::Left) || menuNum == 1) {
 			if (menuNum == 1 && isRoolDice == false && go == false) {
 				player[Numplayer].ThrowDice(point);
 				fl = true;
@@ -339,7 +342,9 @@ void Mono::start() {
 				sleep(*new Time(microseconds(100)));
 			}
 			if (menuNum == 2 && isRoolDice == true && go == false) {
-				++Numplayer;
+				if ((Numplayer + 1) >= spr_Token.size())
+					Numplayer = 0;
+				else ++Numplayer;
 				pos = player[Numplayer].getPosition();
 				isRoolDice = false;
 			}
@@ -382,16 +387,14 @@ void Mono::start() {
 						case 1: spr_Rect[arr[j]].setColor(Color::Green); break;
 						case 2: spr_Rect[arr[j]].setColor(Color::Color(241, 156, 187)); break;
 						case 3: spr_Rect[arr[j]].setColor(Color::Red); break;
-						}
-					}
-				}
-			}
-
-		}
+			}}}}}
 
 		if (go == false) {
-			if ((pos == 2 || pos == 17 || pos == 33) && player[Numplayer].getStart()) {
-				player[Numplayer].getCommunityChest();
+			if((pos == 2 || pos == 17 || pos == 33) && player[Numplayer].getStart()) {
+				int mon = 0;
+				numComm = comm.getComm(mon);
+				player[Numplayer].appMoney(mon);
+				isComm = true;
 				player[Numplayer].setStart(false);
 			}
 			if (pos == 4 && player[Numplayer].getStart()) {
@@ -399,10 +402,19 @@ void Mono::start() {
 				player[Numplayer].setStart(false);
 			}
 			if ((pos == 7 || pos == 22 || pos == 36) && player[Numplayer].getStart()) {
-				player[Numplayer].getChance();
-				player[Numplayer].setStart(false);
+				int mon = 0, posChance = 0; 
+				numChance = chance.getChance(posChance, mon);
+				if (mon == 0) {
+					nextPosition = posChance;
+					go = true;
+				}
+
+				else if (posChance == 0) {
+					player[Numplayer].appMoney(mon);
+				}
+				isChance = true;
+				player[Numplayer].setStart(true);
 			}
-			if (pos == 10 || pos == 20) continue;
 			if (pos == 30) {
 				pos = player[Numplayer].getPosition();
 				map.goToJail(a, b, Numplayer);
@@ -414,15 +426,17 @@ void Mono::start() {
 				player[Numplayer].appMoney(-100);
 				player[Numplayer].setStart(false);
 			}
+			else if (player[Numplayer].getStart() && map.isBuy(pos) == true) {
+				player[Numplayer].Rent(player, pos, map, Numplayer, Size);
+				player[Numplayer].setStart(false);
+			}
 		}
-
 		if (fl == true) {
 			spr_Dice[point[0] - 1].setPosition(600, 300);
 			App.draw(spr_Dice[point[0] - 1]);
 			spr_Dice[point[0] - 1].setPosition(700, 300);
 			App.draw(spr_Dice[point[1] - 1]);
 		}
-
 		if (go == true) {
 			if (pos == nextPosition) go = false;
 			else {
@@ -432,11 +446,7 @@ void Mono::start() {
 			}
 			sleep(*new Time(milliseconds(200)));
 		}
-
-
 		for (int i = 0; i < 5; i++) App.draw(spr_Button[i]);
-
-
 		for (int i = 0; i < spr_Token.size(); i++) App.draw(spr_Token[i]);
 		for (int i = 0; i < spr_Token.size(); i++) App.draw(spr_PlayerZone[i]);
 		for (int i = 0; i < spr_Token.size(); i++) App.draw(spr_TokenInPlayerZone[i]);
@@ -445,13 +455,17 @@ void Mono::start() {
 			money[i].setString(toStr(PlayerMoney) + '$');
 			App.draw(money[i]);
 		}
+		if (isChance) {
+			App.draw(spr_Chance[numChance]);
+				if(Mouse::isButtonPressed(Mouse::Left)) isChance = false;
+		}
+		if (isComm) {
+			App.draw(spr_Comm[numComm]);
+			if (Mouse::isButtonPressed(Mouse::Left)) isComm = false;
+		}
 		for (int i = 0; i < 28; i++) App.draw(spr_Rect[i]);
 		App.display();
 		sleep(*new Time(milliseconds(100)));
 	}
 }
-
-string Mono ::toStr(int var)
-{
-	std::stringstream tmp; tmp << var; return tmp.str();
-}
+string Mono ::toStr(int var) {stringstream tmp; tmp << var; return tmp.str();}

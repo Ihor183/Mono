@@ -1,5 +1,4 @@
 #pragma once
-
 #include<SFML/Graphics.hpp>
 #include<iostream>
 #include<fstream>
@@ -11,7 +10,8 @@
 #include"Menu.h"
 #include"Map.h"
 #include"Dice.h"
-#include"Player.h"
+#include"Chance.h"
+#include"CommunityChest.h"
 #include<vector>
 
 using namespace sf;
@@ -44,8 +44,6 @@ private:
 	Map map;
 	Player *player;
 	Dice dice;
-	
-
 
 public:
 	Mono();

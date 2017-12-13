@@ -1,11 +1,7 @@
 #include "Menu.h"
-
 Menu::Menu() { }
-
 Menu::~Menu() { }
-
 string Menu :: toStr(int var) { stringstream tmp; tmp << var; return tmp.str(); }
-
 Menu::Menu(RenderWindow& window) {
 	Font fnt_Arial;
 	fnt_Arial.loadFromFile("fonts/arial.ttf");
@@ -20,7 +16,6 @@ Menu::Menu(RenderWindow& window) {
 		text[i].setStyle(Text::Bold);
 		text[i].setFillColor(Color::Black);
 	}
-
 	text[0].setString(NewGame);
 	text[0].setPosition(80, 300);
 	text[1].setString(Options);
@@ -38,38 +33,25 @@ Menu::Menu(RenderWindow& window) {
 	bool isMenu = 1;
 	int menuNum = 0;
 
-	while (window.isOpen() && isMenu)
-	{
+	while (window.isOpen() && isMenu){
 		Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == Event::Closed)
-				window.close();
-		}
-
+		while (window.pollEvent(event)) { if (event.type == Event::Closed) window.close(); }
 		for (int i = 0; i < 3; i++) 
 			text[i].setFillColor(Color::Black);
-
 		menuNum = 0;
-
 		window.clear();
 		if (IntRect(80, 300, 300, 50).contains(Mouse::getPosition(window))) { text[0].setFillColor(Color::White); menuNum = 1; }
 		if (IntRect(80, 360, 300, 50).contains(Mouse::getPosition(window))) { text[1].setFillColor(Color::Green); menuNum = 2; }
 		if (IntRect(80, 420, 300, 50).contains(Mouse::getPosition(window))) { text[2].setFillColor(Color::Blue); menuNum = 3; }
 		if (Mouse::isButtonPressed(Mouse::Left))
 		{
-			if (menuNum == 1) {
-				NewMenu(window);
-				isMenu = false;
-			}
-			if (menuNum == 2) { /*window.draw(menu2);*/ window.display(); while (!Keyboard::isKeyPressed(Keyboard::Escape)); }
+			if (menuNum == 1) { NewMenu(window); isMenu = false; }
+			if (menuNum == 2) { window.display(); while (!Keyboard::isKeyPressed(Keyboard::Escape)); }
 			if (menuNum == 3) { window.close(); isMenu = false; }
 		}
 		window.draw(menuBg);
-		for (int i = 0; i < 3; i++)
-			window.draw(text[i]);
+		for (int i = 0; i < 3; i++) window.draw(text[i]);
 		window.display();
-
 	}
 }
 
@@ -84,9 +66,7 @@ void Menu :: NewMenu(RenderWindow& window) {
 		}
 		if (i > 3) tex_Plcol[i].loadFromFile("images/Back3.png");
 	}
-
-	Sprite spr_Plcol[8], spr_Token[4]/*, menu2(menuTexture4)*/, menuBg(menuBackground);
-	//menu2.setPosition(80, 360);
+	Sprite spr_Plcol[8], spr_Token[4], menuBg(menuBackground);
 	menuBg.setPosition(0, 0);
 	for (int i = 0; i < 8; i++) {
 		if (i < 4) {
@@ -94,30 +74,24 @@ void Menu :: NewMenu(RenderWindow& window) {
 			spr_Token[i].setTexture(tex_Token[i]);
 		}else spr_Plcol[i].setTexture(tex_Plcol[i]);
 	}
-
 	for (int i = 0; i < 8; i++) {
 		if (i == 0) { 
 			spr_Plcol[i].setTextureRect(IntRect(55, 104, 58, 58));
 			spr_Plcol[i].setPosition(80, 100);
 		}
-
 		if (i == 1) {
 			spr_Plcol[i].setTextureRect(IntRect(130, 104, 58, 58));
 			spr_Plcol[i].setPosition(1228, 100);
 		}
-
 		if (i == 2) {
 			spr_Plcol[i].setTextureRect(IntRect(205, 104, 58, 58));
 			spr_Plcol[i].setPosition(80, 200);
 		}
-
 		if (i == 3) {
 			spr_Plcol[i].setTextureRect(IntRect(281, 104, 58, 58));
 			spr_Plcol[i].setPosition(1228, 200);
 		}
-
 		if (i > 3) { spr_Plcol[i].setTextureRect(IntRect(0, 0, 120, 58));
-
 			if (i == 4) spr_Plcol[i].setPosition(138, 100);
 			if (i == 5) spr_Plcol[i].setPosition(1108, 100);
 			if (i == 6) spr_Plcol[i].setPosition(138, 200);
@@ -126,11 +100,9 @@ void Menu :: NewMenu(RenderWindow& window) {
 	}
 	int a[4], b[4], c[4], d[4];
 	double e[4], f[4];
-
 	for (int i = 0; i < 4; i++){
 		a[i] = 0, b[i] = 0, c[i] = 1, d[i] = 1, e[i] = 0.0, f[i] = 0.0;
 	}
-
 	for (int i = 0; i < 4; i++) {
 		spr_Token[i].setTextureRect(IntRect(a[i], b[i], c[i], d[i]));
 		if (i == 0) spr_Token[i].setPosition(80, 100);
@@ -138,13 +110,11 @@ void Menu :: NewMenu(RenderWindow& window) {
 		if (i == 2) spr_Token[i].setPosition(80, 200);
 		if (i == 3) spr_Token[i].setPosition(1228, 200);
 	}
-
 	Tokens tokens;
 	ifstream ifs;
 	ifs.open("Tokens.txt", ios::in);
 	if (!ifs)
 		return;
-
 	ifs >> tokens;
 	ifs.close();
 
@@ -164,7 +134,6 @@ void Menu :: NewMenu(RenderWindow& window) {
 			text[i].setFont(fnt_Arial);
 			text[i].setCharacterSize(30);
 			text[i].setStyle(Text::Bold);
-
 			if (i == 4) {
 				text[i].setString(Play);
 				text[i].setPosition(600, 300);
@@ -173,7 +142,6 @@ void Menu :: NewMenu(RenderWindow& window) {
 				text[i].setString(Back);
 				text[i].setPosition(600, 360);
 			}
-
 			continue;
 		}
 		text[i].setFont(fnt_Arial);
@@ -181,7 +149,6 @@ void Menu :: NewMenu(RenderWindow& window) {
 		text[i].setStyle(Text::Bold);
 		text[i].setString(NotSelect);
 	}
-
 	text[0].setPosition(150, 120);
 	text[1].setPosition(1110, 120);
 	text[2].setPosition(150, 220);
@@ -1146,7 +1113,6 @@ void Menu::trade(RenderWindow &window, Player *player, Map &map, int Size, int C
 			spr_image[arr[i]].setPosition(x += 100, y);
 			window.draw(spr_image[arr[i]]);
 		}
-		
 		text[4].setString(to_string(moneyFirstPl));
 		text[5].setString(to_string(moneySecondPl));
 		for (int i = 0; i < 6; i++) window.draw(text[i]);
@@ -1158,18 +1124,11 @@ void Menu::trade(RenderWindow &window, Player *player, Map &map, int Size, int C
 		for (int i = 0; i < numChecks1.size(); i++) {
 			window.draw(spr_check1[numChecks1[i] - 1]);
 		}
-		/*for (int i = 0; i < size; i++) {
-			spr_image[arr[i]].setPosition(x += 100, 0);
-			window.draw(spr_image[arr[i]]);
-		}*/
-
 		for (int i = 0; i < 6; i++) {
 			window.draw(spr_helpInstrument[i]);
 		}
-
 		window.display();
 		sleep(*new Time(milliseconds(150)));
-		//sleep(*new Time(milliseconds(1000)));
 	}
 }
 
