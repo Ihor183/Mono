@@ -44,6 +44,8 @@ private:
 	Map map;
 	Player *player;
 	Dice dice;
+	Chance chance;
+	CommunityChest comm;
 
 public:
 	Mono();
