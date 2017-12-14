@@ -248,8 +248,7 @@ void Mono::start() {
 	for (int i = 0; i < spr_Token.size(); i++) { count[i] = 0; PlayerInJail[i] = 0; }
 
 	Size = spr_Token.size();
-	Chance chance;
-	CommunityChest comm;
+	
 	chance.setChance();
 	comm.setComm();
 	int numChance = 0, numComm = 0;
@@ -297,7 +296,7 @@ void Mono::start() {
 			spr_Button[3].setColor(Color::Blue);
 			menuNum = 4;
 		}
-		if (Mouse::isButtonPressed(Mouse::Left) || menuNum == 1) {
+		if (Mouse::isButtonPressed(Mouse::Left)) {
 			if (menuNum == 1 && isRoolDice == false && go == false) {
 				player[Numplayer].ThrowDice(point);
 				fl = true;

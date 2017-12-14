@@ -1,3 +1,12 @@
-﻿  Player.cpp
-c:\users\ihor1\documents\github\mono\monopoly\monopoly\player.cpp(46): warning C4267: return: преобразование из "size_t" в "int"; возможна потеря данных
+﻿  Mono.cpp
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\mono.cpp(108): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\mono.cpp(133): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\mono.cpp(134): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\mono.cpp(183): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\mono.cpp(199): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\mono.cpp(215): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\mono.cpp(231): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\mono.cpp(250): warning C4267: =: преобразование из "size_t" в "int"; возможна потеря данных
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\mono.cpp(421): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
+c:\users\ihor1\documents\github\mono\monopoly\monopoly\mono.cpp(444): warning C4244: аргумент: преобразование "int" в "float", возможна потеря данных
   Monopoly.vcxproj -> C:\Users\ihor1\Documents\GitHub\Mono\Monopoly\x64\Debug\Monopoly.exe
